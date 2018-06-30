@@ -1,0 +1,25 @@
+
+type Element {
+  id: ID! @unique
+  name: String!
+  text: String
+  horAlign: String
+  verAlign: String
+  fontSize: String
+  color: String
+  weight: String
+  barcodeWidth: String
+  barcodeHeight: String
+  data: String
+  thickness: String
+  rotate: Int
+
+}
+
+type Template {
+  id: ID! @unique
+  name: String
+  height: String
+  width: String
+  elements: [Element!]!
+}
