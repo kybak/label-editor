@@ -37,6 +37,7 @@ const Dragger = styled.div.attrs({
     width: max-content;      
     border: ${props => props.border};
     transform: ${props => props.transform}!important
+    white-space: nowrap;
 `;
 
 const Text = styled.div.attrs({
