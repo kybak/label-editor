@@ -19,10 +19,14 @@ const resolvers = {
         },
     },
     Mutation: {
-        createTemplate(parent, {elements, name}, ctx, info) {
+        createTemplate(parent, {elements, name, height, width}, ctx, info) {
             return ctx.db.mutation.createTemplate(
                 {
-                    data: {name: name, elements: {create: elements}},
+                    data: {
+                        name: name,
+                        height: height,
+                        width: width,
+                        elements: {create: elements}},
                 },
                 info,
             )

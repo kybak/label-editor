@@ -9,7 +9,7 @@ type Query {
 }
 
 type Mutation {
-  createTemplate(name: String!, elements: [ElementCreateInput]): Template
+  createTemplate(name: String!, height: String!, width: String!, elements: [ElementCreateInput]): Template
   deleteTemplate(tplId: ID!): Template
   updateTemplate(name: String, height: String, width:String, tplId: ID!): Template
   createElement(tplId: ID!, element: [ElementCreateInput]): Template
