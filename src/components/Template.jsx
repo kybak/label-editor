@@ -131,11 +131,12 @@ class Template extends React.Component {
 
     getText(el) {
         if (el.data) {
+            const data = this.props.labelData[el.data];
             if (el.name === 'text') {
-                return this.props.labelData[el.data] ? this.props.labelData[el.data] : ""
+                return data && data !== 'undefined' ? data : ""
             }
 
-            if (el.name === 'label' && !this.props.labelData[el.data]) {
+            if (el.name === 'label' && !data) {
                 return ""
             }
         } else if (el.text) {
