@@ -38,6 +38,7 @@ const Dragger = styled.div.attrs({
     border: ${props => props.border};
     transform: ${props => props.transform}!important
     white-space: nowrap;
+    position: fixed;
 `;
 
 const Text = styled.div.attrs({
