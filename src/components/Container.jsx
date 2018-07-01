@@ -16,7 +16,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import {TEMPLATE_FRAGMENT} from "../constants/fragments";
 import InputLabel from '@material-ui/core/InputLabel';
 import {withRouter} from 'react-router-dom';
-import FileSaver from 'file-saver'
+import FileSaver from 'file-saver';
+import queryString from 'query-string';
 
 
 const LabelContainer = styled.div`
@@ -46,7 +47,8 @@ class Container extends React.Component {
     constructor(props) {
         super(props);
 
-        labelData = props.match.params;
+
+        labelData = queryString.parse(props.location.search);
         this.template = React.createRef();
         this.container = React.createRef();
         this.getImage = this.getImage.bind(this);
@@ -181,7 +183,6 @@ class Container extends React.Component {
     }
 
     renderTemplate(tpl) {
-        console.log('TPLCONTAINER', tpl);
         this.setState({
             tplName: tpl.name,
             tplId: tpl.id,
