@@ -4,6 +4,7 @@ import {Mutation} from 'react-apollo'
 import {gql} from 'apollo-boost'
 import {TEMPLATES_WHERE_QUERY} from './Template'
 import Button from '@material-ui/core/Button';
+import {TEMPLATE_FRAGMENT} from "../constants/fragments";
 
 
 class CreateElement extends Component {
@@ -97,26 +98,10 @@ const CREATE_ELEMENT_MUTATION = gql`
             tplId: $tplId
             element: $element
         ) {
-            id
-            height
-            width
-            elements {
-                id
-                name
-                text
-                horAlign
-                verAlign
-                fontSize
-                color
-                weight
-                barcodeWidth
-                barcodeHeight
-                data
-                thickness
-                rotate
-            }
+            ...AllTemplate
         }
     }
-`
+    ${TEMPLATE_FRAGMENT}
+`;
 
 export default withRouter(CreateElement)
