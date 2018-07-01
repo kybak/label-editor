@@ -183,7 +183,6 @@ class Template extends React.Component {
                         )
                     }
 
-                    console.log('TEMPLATE: ', data.templates[0]);
 
                     if (Object.keys(data.templates[0]).length > 0) {
                         const {templates} = JSON.parse(JSON.stringify(data)),

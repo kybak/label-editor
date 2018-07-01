@@ -260,7 +260,7 @@ class Container extends React.Component {
                                             />
                                             <TextField
                                                 label="Rotation (degrees)"
-                                                value={selected.rotate}
+                                                value={selected.rotate ? selected.rotate : ""}
                                                 onChange={e => this.changeAttribute("rotate", e.target.value, updateElement)}
                                                 style={{margin: "0 0 10px 3px"}}
                                             />
