@@ -136,9 +136,7 @@ class Template extends React.Component {
                 return data && data !== 'undefined' ? data : ""
             }
 
-            if (el.name === 'label' && !data) {
-                return ""
-            }
+            return el.name === 'label' && !data ? "" : el.text
         } else if (el.text) {
             return el.text
         } else {
