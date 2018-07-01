@@ -35,7 +35,7 @@ const Dragger = styled.div.attrs({
 })`
     padding: ${props => props.padding};
     cursor: move;
-    width: ${props => props.width}
+    width: ${props => props.width};
     border: ${props => props.border};
     transform: ${props => props.transform}!important
     white-space: nowrap;

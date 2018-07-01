@@ -23,17 +23,17 @@ const cache = new InMemoryCache({
 });
 
 const client = new ApolloClient({
-    uri: 'http://178.128.182.29:4000',
+    uri: 'http://localhost:4000',
     cache
 });
-
+// http://178.128.182.29
 ReactDOM.render(
     <ApolloProvider client={client}>
         <Router>
             <Fragment>
                 <Switch>
                     <Route exact
-                           path="/:template/:id/:product/:ingredients/:pesticides/:soldBy/:additionalGrower/:labId/:thc/:cbd/:thca/:cbda/:cbg/:cbn/:cbc"
+                           path="/:template/:id/:product/:ingredients/:pesticides/:soldBy/:additionalGrower/:labId/:harvestDate/:manufactureDate/:bestByDate/:thc/:cbd/:thca/:cbda/:cbg/:cbn/:cbc"
                            component={Container}/>
                 </Switch>
             </Fragment>

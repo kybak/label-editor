@@ -25,7 +25,7 @@ class CreateElement extends Component {
 
     render() {
         const {tplId, name} = this.props;
-        console.log("TPLID TO EDIT:", tplid);
+        console.log("TPLID TO EDIT:", tplId);
         console.log("NAME OF EL:", name);
 
         return (
@@ -47,7 +47,7 @@ class CreateElement extends Component {
                                             barcodeHeight: "100",
                                             thickness: "2px",
                                             data: "",
-                                            dividerWidth: 5
+                                            dividerWidth: 480
                                         },
                                         id = Math.floor(Math.random() * 90000) + 10000;
 

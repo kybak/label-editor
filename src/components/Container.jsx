@@ -268,7 +268,7 @@ class Container extends React.Component {
                                             />
                                             <TextField
                                                 label="Width"
-                                                value={selected.width}
+                                                value={selected.dividerWidth}
                                                 onChange={e => this.changeAttribute("dividerWidth", e.target.value, updateElement)}
                                                 style={{margin: "0 0 10px 3px"}}
                                             />
