@@ -43,7 +43,8 @@ class CreateElement extends Component {
                                             barcodeWidth: "2",
                                             barcodeHeight: "100",
                                             thickness: "2px",
-                                            data: ""
+                                            data: "",
+                                            dividerWidth: 5
                                         },
                                         id = Math.floor(Math.random() * 90000) + 10000;
 

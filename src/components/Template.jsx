@@ -30,11 +30,12 @@ const Dragger = styled.div.attrs({
         }
     },
     padding: props => props.print ? "2px" : "0",
-    transform: props => props.style.transform + ' rotate(' + props.rotate + 'deg)'
+    transform: props => props.style.transform + ' rotate(' + props.rotate + 'deg)',
+    width: props => props.width ? props.width + "px" : "max-content"
 })`
     padding: ${props => props.padding};
     cursor: move;
-    width: max-content;      
+    width: ${props => props.width}
     border: ${props => props.border};
     transform: ${props => props.transform}!important
     white-space: nowrap;
@@ -137,7 +138,9 @@ class Template extends React.Component {
                 return data && data !== 'undefined' ? data : ""
             }
 
-            return el.name === 'label' && !data ? "" : el.text
+            if (el.name === 'label') {
+                return data && data !== 'undefined' ? el.text : ""
+            }
         } else if (el.text) {
             return el.text
         } else {
