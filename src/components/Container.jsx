@@ -15,9 +15,8 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import {TEMPLATE_FRAGMENT} from "../constants/fragments";
 import InputLabel from '@material-ui/core/InputLabel';
-import {withRouter} from 'react-router-dom'
-
-
+import {withRouter} from 'react-router-dom';
+import FileSaver from 'file-saver'
 
 
 const LabelContainer = styled.div`
@@ -25,6 +24,14 @@ const LabelContainer = styled.div`
    width: 100vw;
    height: 100vh;
      
+`;
+
+const TemplateContainer = styled.div.attrs({
+    widthHeight: props => props.print ? 'max-content' : '100%'
+})`
+    width: ${props => props.widthHeight};
+    height: ${props => props.widthHeight};
+    position: relative;
 `;
 
 const Properties = styled.span`
@@ -107,8 +114,16 @@ class Container extends React.Component {
         this.setState({print: true});
         const node = ReactDOM.findDOMNode(this.template.current);
 
-        domtoimage.toPng(node)
+        domtoimage.toBlob(node)
+            .then((blob) => {
+                FileSaver.saveAs(blob, `${labelData.product + "-" + labelData.soldBy.trim()}.png`);
+                this.setState({print: false});
+            });
+
+
+        /*domtoimage.toPng(node)
             .then((dataUrl) => {
+        console.log("dataurl:", dataUrl);
                 // ReactDOM.render(<img src={dataUrl}></img>, ReactDOM.findDOMNode(this.container.current));
                 let link = document.createElement('a');
                 link.download = `${labelData.product + "-" + labelData.soldBy.trim()}.png`;
@@ -117,7 +132,7 @@ class Container extends React.Component {
             })
             .catch(function (error) {
                 console.error('oops, something went wrong!', error);
-            });
+            });*/
     }
 
     async changeAttribute(attr, val, updateElement) {
@@ -167,17 +182,24 @@ class Container extends React.Component {
 
     renderTemplate(tpl) {
         console.log('TPLCONTAINER', tpl);
-        this.setState({tplName: tpl.name, tplId: tpl.id, height: tpl.height, width: tpl.width, elements: JSON.parse(JSON.stringify(tpl.elements))})
+        this.setState({
+            tplName: tpl.name,
+            tplId: tpl.id,
+            height: tpl.height,
+            width: tpl.width,
+            elements: JSON.parse(JSON.stringify(tpl.elements))
+        })
     }
 
     render() {
         const {height, width, elements, defaultName, tplName, tplId, selected, print} = this.state;
 
         return (
-            <LabelContainer ref={this.container} style={{position: "fixed", overflow: "auto"}} className="flex-column justify-center align-center">
+            <LabelContainer ref={this.container} style={{position: "fixed", overflow: "auto"}}
+                            className="flex-column justify-center align-center">
 
 
-                <div style={{position: "relative", width: "100%", height: "100%"}}>
+                <TemplateContainer print={print}>
 
                     <Templates tplId={tplId} tplName={tplName} renderTemplate={tpl => this.renderTemplate(tpl)}/>
 
@@ -243,7 +265,7 @@ class Container extends React.Component {
                                                 style={{margin: "0 0 10px 3px"}}
                                             />
                                             <Button variant="outlined"
-                                                onClick={e => this.changeAttribute("weight", "bold", updateElement)}>
+                                                    onClick={e => this.changeAttribute("weight", "bold", updateElement)}>
                                                 Bold
                                             </Button>
                                             <InputLabel htmlFor="data" style={{marginTop: "10px"}}>Data</InputLabel>
@@ -318,7 +340,7 @@ class Container extends React.Component {
                               print={print}
                     />
 
-                </div>
+                </TemplateContainer>
 
             </LabelContainer>
         );

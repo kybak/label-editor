@@ -11,13 +11,14 @@ import {TEMPLATE_FRAGMENT} from "../constants/fragments";
 
 const LabelComponent = styled.div.attrs({
     height: props => props.height + "in" || '3.75in',
-    width: props => props.width + "in" || '5in'
+    width: props => props.width + "in" || '5in',
+    position: props => props.print ? "relative" : "fixed"
 })`
   background: white;
   box-shadow: 1px 1px 5px #00000054;
   height: ${props => props.height};
   width: ${props => props.width};
-  position: fixed;
+  position: ${props => props.position};
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   top: 50%;
@@ -220,7 +221,7 @@ class Template extends React.Component {
             >
                 {(updateElement, {data, loading, error}) => {
                     return (
-                        <LabelComponent height={template.height} width={template.width}>
+                        <LabelComponent print={print} height={template.height} width={template.width}>
                             {template.elements.map(el => {
                                 if (el && el.name === "text") return (
                                     <Draggable style={{width: "100px!important"}} key={el.id}
