@@ -159,7 +159,6 @@ class Template extends React.Component {
     }
 
     render() {
-        console.log(this.props.tplName);
         return (
             <Query query={TEMPLATES_WHERE_QUERY} variables={{id: this.props.tplId, name: this.props.tplName}}>
                 {({data, loading, error}) => {
@@ -178,6 +177,8 @@ class Template extends React.Component {
                             </div>
                         )
                     }
+
+                    console.log('TEMPLATE: ', data.templates[0]);
 
                     if (Object.keys(data.templates[0]).length > 0) {
                         const {templates} = JSON.parse(JSON.stringify(data)),
