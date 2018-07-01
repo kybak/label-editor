@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-@import url('https://fonts.googleapis.com/css?family=Poppins');
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif, Arial;
 }
 
 button {

@@ -7,7 +7,7 @@ import DeleteElement from './DeleteElement';
 import {Mutation} from 'react-apollo'
 import {gql} from "apollo-boost/lib/index";
 import {TEMPLATES_WHERE_QUERY} from "./Template";
-import domtoimage from 'dom-to-image';
+import domtoimage from 'dom-to-image-chrome-fix';
 import ReactDOM from 'react-dom';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -116,7 +116,7 @@ class Container extends React.Component {
         this.setState({print: true});
         const node = ReactDOM.findDOMNode(this.template.current);
 
-        domtoimage.toBlob(node)
+        domtoimage.toBlob(node, {style: {fontFamily: "Arial"}})
             .then((blob) => {
                 FileSaver.saveAs(blob, `${labelData.product + "-" + labelData.soldBy.trim()}.png`);
                 this.setState({print: false});

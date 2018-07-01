@@ -25,8 +25,6 @@ class CreateElement extends Component {
 
     render() {
         const {tplId, name} = this.props;
-        console.log("TPLID TO EDIT:", tplId);
-        console.log("NAME OF EL:", name);
 
         return (
             <Mutation mutation={CREATE_ELEMENT_MUTATION}>
