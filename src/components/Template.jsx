@@ -131,7 +131,13 @@ class Template extends React.Component {
 
     getText(el) {
         if (el.data) {
-            return this.props.labelData[el.data]
+            if (el.name === 'text') {
+                return this.props.labelData[el.data] ? this.props.labelData[el.data] : ""
+            }
+
+            if (el.name === 'label' && !this.props.labelData[el.data]) {
+                return ""
+            }
         } else if (el.text) {
             return el.text
         } else {
@@ -219,8 +225,27 @@ class Template extends React.Component {
                                         <Dragger sel={this.isSelected(el.id)} print={print} rotate={el.rotate}>
                                             <Text
                                                 fontSize={el.fontSize}
-                                                  color={el.color}
-                                                  weight={el.weight}>
+                                                color={el.color}
+                                                weight={el.weight}>
+                                                {this.getText(el)}
+                                            </Text>
+                                        </Dragger>
+                                    </Draggable>
+                                );
+
+                                if (el && el.name === "label") return (
+                                    <Draggable style={{width: "100px!important"}} key={el.id}
+                                               defaultPosition={{
+                                                   x: parseInt(el.horAlign),
+                                                   y: parseInt(el.verAlign)
+                                               }}
+                                               onStart={(e) => this.select(e, el)}
+                                               onStop={(e) => this.handleStop(e, updateElement)}>
+                                        <Dragger sel={this.isSelected(el.id)} print={print} rotate={el.rotate}>
+                                            <Text
+                                                fontSize={el.fontSize}
+                                                color={el.color}
+                                                weight={el.weight}>
                                                 {this.getText(el)}
                                             </Text>
                                         </Dragger>
@@ -286,7 +311,7 @@ const UPDATE_ELEMENT_MUTATION = gql`
             ...AllTemplate
         }
     }
-    ${TEMPLATE_FRAGMENT}    
+    ${TEMPLATE_FRAGMENT}
 `;
 
 export default Template

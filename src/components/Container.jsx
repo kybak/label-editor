@@ -207,6 +207,7 @@ class Container extends React.Component {
                         </div>
 
                         <Button variant="outlined" onClick={this.getImage}>Print</Button>
+                        <CreateElement tplId={tplId} name="label">Label</CreateElement>
                         <CreateElement tplId={tplId} name="text">Text</CreateElement>
                         <CreateElement tplId={tplId} name="divider">Divider</CreateElement>
                         <CreateElement tplId={tplId} name="barcode">Barcode</CreateElement>
