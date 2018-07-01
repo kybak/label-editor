@@ -17,6 +17,10 @@ const LabelComponent = styled.div.attrs({
   box-shadow: 1px 1px 5px #00000054;
   height: ${props => props.height};
   width: ${props => props.width};
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  top: 50%;
 `;
 
 const Dragger = styled.div.attrs({

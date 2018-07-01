@@ -174,14 +174,14 @@ class Container extends React.Component {
         const {height, width, elements, defaultName, tplName, tplId, selected, print} = this.state;
 
         return (
-            <LabelContainer ref={this.container} className="flex-column justify-center align-center">
+            <LabelContainer ref={this.container} style={{position: "fixed", overflow: "auto"}} className="flex-column justify-center align-center">
 
 
-                <div style={{position: "relative"}}>
+                <div style={{position: "relative", width: "100%", height: "100%"}}>
 
                     <Templates tplId={tplId} tplName={tplName} renderTemplate={tpl => this.renderTemplate(tpl)}/>
 
-                    <div style={{position: "absolute", right: "-235px", top: "0px", width: "150px"}}
+                    <div style={{position: "absolute", right: "50px", top: "50px", width: "150px"}}
                          className="flex-column">
                         <div className="flex-row">
                             <Mutation mutation={UPDATE_TEMPLATE_MUTATION}>
