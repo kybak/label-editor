@@ -222,7 +222,7 @@ class Container extends React.Component {
                             {(updateElement, {data, loading, error}) => {
                                 return (
                                     <Fragment>
-                                        {selected && selected.name === "text" &&
+                                        {selected && (selected.name === "text" || selected.name === "label" &&
                                         <Fragment>
                                             <TextField
                                                 label="Text"
