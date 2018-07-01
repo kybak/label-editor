@@ -1,5 +1,5 @@
 # source: https://us1.prisma.sh/public-plumedragon-495/my-app/dev
-# timestamp: Fri Jun 29 2018 23:11:17 GMT-0700 (PDT)
+# timestamp: Sun Jul 01 2018 08:36:33 GMT-0700 (PDT)
 
 type AggregateElement {
   count: Int!
@@ -28,6 +28,7 @@ type Element implements Node {
   data: String
   thickness: String
   rotate: Int
+  dividerWidth: Int
 }
 
 """A connection to a list of items."""
@@ -53,6 +54,7 @@ input ElementCreateInput {
   data: String
   thickness: String
   rotate: Int
+  dividerWidth: Int
 }
 
 input ElementCreateManyInput {
@@ -96,6 +98,8 @@ enum ElementOrderByInput {
   thickness_DESC
   rotate_ASC
   rotate_DESC
+  dividerWidth_ASC
+  dividerWidth_DESC
   updatedAt_ASC
   updatedAt_DESC
   createdAt_ASC
@@ -116,6 +120,7 @@ type ElementPreviousValues {
   data: String
   thickness: String
   rotate: Int
+  dividerWidth: Int
 }
 
 type ElementSubscriptionPayload {
@@ -170,6 +175,7 @@ input ElementUpdateDataInput {
   data: String
   thickness: String
   rotate: Int
+  dividerWidth: Int
 }
 
 input ElementUpdateInput {
@@ -185,6 +191,7 @@ input ElementUpdateInput {
   data: String
   thickness: String
   rotate: Int
+  dividerWidth: Int
 }
 
 input ElementUpdateManyInput {
@@ -718,6 +725,28 @@ input ElementWhereInput {
 
   """All values greater than or equal the given value."""
   rotate_gte: Int
+  dividerWidth: Int
+
+  """All values that are not equal to given value."""
+  dividerWidth_not: Int
+
+  """All values that are contained in given list."""
+  dividerWidth_in: [Int!]
+
+  """All values that are not contained in given list."""
+  dividerWidth_not_in: [Int!]
+
+  """All values less than the given value."""
+  dividerWidth_lt: Int
+
+  """All values less than or equal the given value."""
+  dividerWidth_lte: Int
+
+  """All values greater than the given value."""
+  dividerWidth_gt: Int
+
+  """All values greater than or equal the given value."""
+  dividerWidth_gte: Int
   _MagicalBackRelation_ElementToTemplate_every: TemplateWhereInput
   _MagicalBackRelation_ElementToTemplate_some: TemplateWhereInput
   _MagicalBackRelation_ElementToTemplate_none: TemplateWhereInput

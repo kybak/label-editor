@@ -13,6 +13,7 @@ type Element {
   data: String
   thickness: String
   rotate: Int
+  dividerWidth: Int
 }
 
 type Template {
