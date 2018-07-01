@@ -266,6 +266,12 @@ class Container extends React.Component {
                                                 onChange={e => this.changeAttribute("thickness", e.target.value, updateElement)}
                                                 style={{margin: "0 0 10px 3px"}}
                                             />
+                                            <TextField
+                                                label="Width"
+                                                value={selected.width}
+                                                onChange={e => this.changeAttribute("dividerWidth", e.target.value, updateElement)}
+                                                style={{margin: "0 0 10px 3px"}}
+                                            />
                                         </Fragment>
                                         }
 

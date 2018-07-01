@@ -21,6 +21,7 @@ export const TEMPLATE_FRAGMENT = gql`
             data
             thickness
             rotate
+            dividerWidth
         }
         
     }

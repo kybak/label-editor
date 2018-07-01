@@ -259,7 +259,7 @@ class Template extends React.Component {
                                     }}
                                                onStart={(e) => this.select(e, el)}
                                                onStop={(e) => this.handleStop(e, updateElement)}>
-                                        <Dragger style={{width: "100%"}} sel={this.isSelected(el.id)} print={print}>
+                                        <Dragger width={el.dividerWidth} sel={this.isSelected(el.id)} print={print}>
                                             <Divider color={el.color}
                                                      thickness={el.thickness}>
                                             </Divider>
@@ -274,7 +274,7 @@ class Template extends React.Component {
                                     }}
                                                onStart={(e) => this.select(e, el)}
                                                onStop={(e) => this.handleStop(e, updateElement)}>
-                                        <Dragger style={{width: "100%", textAlign: "center"}}
+                                        <Dragger style={{textAlign: "center"}}
                                                  sel={this.isSelected(el.id)} print={print}>
                                             <Barcode value={labelData.id} displayValue={false}
                                                      width={parseInt(el.barcodeWidth)}
