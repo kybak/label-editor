@@ -14,8 +14,8 @@ git clone https://github.com/kybak/label-editor.git && cd label-editor
 npm install && pm2 start --name "client" npm -- start
 
 # 3. Navigate into the `server` directory, initialize and start server
-cd server && npm install && prisma deploy
-pm2 start --name "server" npm -- start
+$ cd server && npm install && prisma deploy
+$ pm2 start --name "server" npm -- start
 # or yarn dev which starts a GraphQL Playground at localhost:4000:playground
-yarn dev
+$ yarn dev
 ```
