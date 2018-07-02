@@ -1,0 +1,1105 @@
+# source: https://us1.prisma.sh/public-plumedragon-495/my-app/dev
+# timestamp: Sun Jul 01 2018 08:36:33 GMT-0700 (PDT)
+
+type AggregateElement {
+  count: Int!
+}
+
+type AggregateTemplate {
+  count: Int!
+}
+
+type BatchPayload {
+  """The number of nodes that have been affected by the Batch operation."""
+  count: Long!
+}
+
+type Element implements Node {
+  id: ID!
+  name: String!
+  text: String
+  horAlign: String
+  verAlign: String
+  fontSize: String
+  color: String
+  weight: String
+  barcodeWidth: String
+  barcodeHeight: String
+  data: String
+  thickness: String
+  rotate: Int
+  dividerWidth: Int
+}
+
+"""A connection to a list of items."""
+type ElementConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [ElementEdge]!
+  aggregate: AggregateElement!
+}
+
+input ElementCreateInput {
+  name: String!
+  text: String
+  horAlign: String
+  verAlign: String
+  fontSize: String
+  color: String
+  weight: String
+  barcodeWidth: String
+  barcodeHeight: String
+  data: String
+  thickness: String
+  rotate: Int
+  dividerWidth: Int
+}
+
+input ElementCreateManyInput {
+  create: [ElementCreateInput!]
+  connect: [ElementWhereUniqueInput!]
+}
+
+"""An edge in a connection."""
+type ElementEdge {
+  """The item at the end of the edge."""
+  node: Element!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum ElementOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  text_ASC
+  text_DESC
+  horAlign_ASC
+  horAlign_DESC
+  verAlign_ASC
+  verAlign_DESC
+  fontSize_ASC
+  fontSize_DESC
+  color_ASC
+  color_DESC
+  weight_ASC
+  weight_DESC
+  barcodeWidth_ASC
+  barcodeWidth_DESC
+  barcodeHeight_ASC
+  barcodeHeight_DESC
+  data_ASC
+  data_DESC
+  thickness_ASC
+  thickness_DESC
+  rotate_ASC
+  rotate_DESC
+  dividerWidth_ASC
+  dividerWidth_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type ElementPreviousValues {
+  id: ID!
+  name: String!
+  text: String
+  horAlign: String
+  verAlign: String
+  fontSize: String
+  color: String
+  weight: String
+  barcodeWidth: String
+  barcodeHeight: String
+  data: String
+  thickness: String
+  rotate: Int
+  dividerWidth: Int
+}
+
+type ElementSubscriptionPayload {
+  mutation: MutationType!
+  node: Element
+  updatedFields: [String!]
+  previousValues: ElementPreviousValues
+}
+
+input ElementSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [ElementSubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [ElementSubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [ElementSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: ElementWhereInput
+}
+
+input ElementUpdateDataInput {
+  name: String
+  text: String
+  horAlign: String
+  verAlign: String
+  fontSize: String
+  color: String
+  weight: String
+  barcodeWidth: String
+  barcodeHeight: String
+  data: String
+  thickness: String
+  rotate: Int
+  dividerWidth: Int
+}
+
+input ElementUpdateInput {
+  name: String
+  text: String
+  horAlign: String
+  verAlign: String
+  fontSize: String
+  color: String
+  weight: String
+  barcodeWidth: String
+  barcodeHeight: String
+  data: String
+  thickness: String
+  rotate: Int
+  dividerWidth: Int
+}
+
+input ElementUpdateManyInput {
+  create: [ElementCreateInput!]
+  connect: [ElementWhereUniqueInput!]
+  disconnect: [ElementWhereUniqueInput!]
+  delete: [ElementWhereUniqueInput!]
+  update: [ElementUpdateWithWhereUniqueNestedInput!]
+  upsert: [ElementUpsertWithWhereUniqueNestedInput!]
+}
+
+input ElementUpdateWithWhereUniqueNestedInput {
+  where: ElementWhereUniqueInput!
+  data: ElementUpdateDataInput!
+}
+
+input ElementUpsertWithWhereUniqueNestedInput {
+  where: ElementWhereUniqueInput!
+  update: ElementUpdateDataInput!
+  create: ElementCreateInput!
+}
+
+input ElementWhereInput {
+  """Logical AND on all given filters."""
+  AND: [ElementWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [ElementWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [ElementWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
+  text: String
+
+  """All values that are not equal to given value."""
+  text_not: String
+
+  """All values that are contained in given list."""
+  text_in: [String!]
+
+  """All values that are not contained in given list."""
+  text_not_in: [String!]
+
+  """All values less than the given value."""
+  text_lt: String
+
+  """All values less than or equal the given value."""
+  text_lte: String
+
+  """All values greater than the given value."""
+  text_gt: String
+
+  """All values greater than or equal the given value."""
+  text_gte: String
+
+  """All values containing the given string."""
+  text_contains: String
+
+  """All values not containing the given string."""
+  text_not_contains: String
+
+  """All values starting with the given string."""
+  text_starts_with: String
+
+  """All values not starting with the given string."""
+  text_not_starts_with: String
+
+  """All values ending with the given string."""
+  text_ends_with: String
+
+  """All values not ending with the given string."""
+  text_not_ends_with: String
+  horAlign: String
+
+  """All values that are not equal to given value."""
+  horAlign_not: String
+
+  """All values that are contained in given list."""
+  horAlign_in: [String!]
+
+  """All values that are not contained in given list."""
+  horAlign_not_in: [String!]
+
+  """All values less than the given value."""
+  horAlign_lt: String
+
+  """All values less than or equal the given value."""
+  horAlign_lte: String
+
+  """All values greater than the given value."""
+  horAlign_gt: String
+
+  """All values greater than or equal the given value."""
+  horAlign_gte: String
+
+  """All values containing the given string."""
+  horAlign_contains: String
+
+  """All values not containing the given string."""
+  horAlign_not_contains: String
+
+  """All values starting with the given string."""
+  horAlign_starts_with: String
+
+  """All values not starting with the given string."""
+  horAlign_not_starts_with: String
+
+  """All values ending with the given string."""
+  horAlign_ends_with: String
+
+  """All values not ending with the given string."""
+  horAlign_not_ends_with: String
+  verAlign: String
+
+  """All values that are not equal to given value."""
+  verAlign_not: String
+
+  """All values that are contained in given list."""
+  verAlign_in: [String!]
+
+  """All values that are not contained in given list."""
+  verAlign_not_in: [String!]
+
+  """All values less than the given value."""
+  verAlign_lt: String
+
+  """All values less than or equal the given value."""
+  verAlign_lte: String
+
+  """All values greater than the given value."""
+  verAlign_gt: String
+
+  """All values greater than or equal the given value."""
+  verAlign_gte: String
+
+  """All values containing the given string."""
+  verAlign_contains: String
+
+  """All values not containing the given string."""
+  verAlign_not_contains: String
+
+  """All values starting with the given string."""
+  verAlign_starts_with: String
+
+  """All values not starting with the given string."""
+  verAlign_not_starts_with: String
+
+  """All values ending with the given string."""
+  verAlign_ends_with: String
+
+  """All values not ending with the given string."""
+  verAlign_not_ends_with: String
+  fontSize: String
+
+  """All values that are not equal to given value."""
+  fontSize_not: String
+
+  """All values that are contained in given list."""
+  fontSize_in: [String!]
+
+  """All values that are not contained in given list."""
+  fontSize_not_in: [String!]
+
+  """All values less than the given value."""
+  fontSize_lt: String
+
+  """All values less than or equal the given value."""
+  fontSize_lte: String
+
+  """All values greater than the given value."""
+  fontSize_gt: String
+
+  """All values greater than or equal the given value."""
+  fontSize_gte: String
+
+  """All values containing the given string."""
+  fontSize_contains: String
+
+  """All values not containing the given string."""
+  fontSize_not_contains: String
+
+  """All values starting with the given string."""
+  fontSize_starts_with: String
+
+  """All values not starting with the given string."""
+  fontSize_not_starts_with: String
+
+  """All values ending with the given string."""
+  fontSize_ends_with: String
+
+  """All values not ending with the given string."""
+  fontSize_not_ends_with: String
+  color: String
+
+  """All values that are not equal to given value."""
+  color_not: String
+
+  """All values that are contained in given list."""
+  color_in: [String!]
+
+  """All values that are not contained in given list."""
+  color_not_in: [String!]
+
+  """All values less than the given value."""
+  color_lt: String
+
+  """All values less than or equal the given value."""
+  color_lte: String
+
+  """All values greater than the given value."""
+  color_gt: String
+
+  """All values greater than or equal the given value."""
+  color_gte: String
+
+  """All values containing the given string."""
+  color_contains: String
+
+  """All values not containing the given string."""
+  color_not_contains: String
+
+  """All values starting with the given string."""
+  color_starts_with: String
+
+  """All values not starting with the given string."""
+  color_not_starts_with: String
+
+  """All values ending with the given string."""
+  color_ends_with: String
+
+  """All values not ending with the given string."""
+  color_not_ends_with: String
+  weight: String
+
+  """All values that are not equal to given value."""
+  weight_not: String
+
+  """All values that are contained in given list."""
+  weight_in: [String!]
+
+  """All values that are not contained in given list."""
+  weight_not_in: [String!]
+
+  """All values less than the given value."""
+  weight_lt: String
+
+  """All values less than or equal the given value."""
+  weight_lte: String
+
+  """All values greater than the given value."""
+  weight_gt: String
+
+  """All values greater than or equal the given value."""
+  weight_gte: String
+
+  """All values containing the given string."""
+  weight_contains: String
+
+  """All values not containing the given string."""
+  weight_not_contains: String
+
+  """All values starting with the given string."""
+  weight_starts_with: String
+
+  """All values not starting with the given string."""
+  weight_not_starts_with: String
+
+  """All values ending with the given string."""
+  weight_ends_with: String
+
+  """All values not ending with the given string."""
+  weight_not_ends_with: String
+  barcodeWidth: String
+
+  """All values that are not equal to given value."""
+  barcodeWidth_not: String
+
+  """All values that are contained in given list."""
+  barcodeWidth_in: [String!]
+
+  """All values that are not contained in given list."""
+  barcodeWidth_not_in: [String!]
+
+  """All values less than the given value."""
+  barcodeWidth_lt: String
+
+  """All values less than or equal the given value."""
+  barcodeWidth_lte: String
+
+  """All values greater than the given value."""
+  barcodeWidth_gt: String
+
+  """All values greater than or equal the given value."""
+  barcodeWidth_gte: String
+
+  """All values containing the given string."""
+  barcodeWidth_contains: String
+
+  """All values not containing the given string."""
+  barcodeWidth_not_contains: String
+
+  """All values starting with the given string."""
+  barcodeWidth_starts_with: String
+
+  """All values not starting with the given string."""
+  barcodeWidth_not_starts_with: String
+
+  """All values ending with the given string."""
+  barcodeWidth_ends_with: String
+
+  """All values not ending with the given string."""
+  barcodeWidth_not_ends_with: String
+  barcodeHeight: String
+
+  """All values that are not equal to given value."""
+  barcodeHeight_not: String
+
+  """All values that are contained in given list."""
+  barcodeHeight_in: [String!]
+
+  """All values that are not contained in given list."""
+  barcodeHeight_not_in: [String!]
+
+  """All values less than the given value."""
+  barcodeHeight_lt: String
+
+  """All values less than or equal the given value."""
+  barcodeHeight_lte: String
+
+  """All values greater than the given value."""
+  barcodeHeight_gt: String
+
+  """All values greater than or equal the given value."""
+  barcodeHeight_gte: String
+
+  """All values containing the given string."""
+  barcodeHeight_contains: String
+
+  """All values not containing the given string."""
+  barcodeHeight_not_contains: String
+
+  """All values starting with the given string."""
+  barcodeHeight_starts_with: String
+
+  """All values not starting with the given string."""
+  barcodeHeight_not_starts_with: String
+
+  """All values ending with the given string."""
+  barcodeHeight_ends_with: String
+
+  """All values not ending with the given string."""
+  barcodeHeight_not_ends_with: String
+  data: String
+
+  """All values that are not equal to given value."""
+  data_not: String
+
+  """All values that are contained in given list."""
+  data_in: [String!]
+
+  """All values that are not contained in given list."""
+  data_not_in: [String!]
+
+  """All values less than the given value."""
+  data_lt: String
+
+  """All values less than or equal the given value."""
+  data_lte: String
+
+  """All values greater than the given value."""
+  data_gt: String
+
+  """All values greater than or equal the given value."""
+  data_gte: String
+
+  """All values containing the given string."""
+  data_contains: String
+
+  """All values not containing the given string."""
+  data_not_contains: String
+
+  """All values starting with the given string."""
+  data_starts_with: String
+
+  """All values not starting with the given string."""
+  data_not_starts_with: String
+
+  """All values ending with the given string."""
+  data_ends_with: String
+
+  """All values not ending with the given string."""
+  data_not_ends_with: String
+  thickness: String
+
+  """All values that are not equal to given value."""
+  thickness_not: String
+
+  """All values that are contained in given list."""
+  thickness_in: [String!]
+
+  """All values that are not contained in given list."""
+  thickness_not_in: [String!]
+
+  """All values less than the given value."""
+  thickness_lt: String
+
+  """All values less than or equal the given value."""
+  thickness_lte: String
+
+  """All values greater than the given value."""
+  thickness_gt: String
+
+  """All values greater than or equal the given value."""
+  thickness_gte: String
+
+  """All values containing the given string."""
+  thickness_contains: String
+
+  """All values not containing the given string."""
+  thickness_not_contains: String
+
+  """All values starting with the given string."""
+  thickness_starts_with: String
+
+  """All values not starting with the given string."""
+  thickness_not_starts_with: String
+
+  """All values ending with the given string."""
+  thickness_ends_with: String
+
+  """All values not ending with the given string."""
+  thickness_not_ends_with: String
+  rotate: Int
+
+  """All values that are not equal to given value."""
+  rotate_not: Int
+
+  """All values that are contained in given list."""
+  rotate_in: [Int!]
+
+  """All values that are not contained in given list."""
+  rotate_not_in: [Int!]
+
+  """All values less than the given value."""
+  rotate_lt: Int
+
+  """All values less than or equal the given value."""
+  rotate_lte: Int
+
+  """All values greater than the given value."""
+  rotate_gt: Int
+
+  """All values greater than or equal the given value."""
+  rotate_gte: Int
+  dividerWidth: Int
+
+  """All values that are not equal to given value."""
+  dividerWidth_not: Int
+
+  """All values that are contained in given list."""
+  dividerWidth_in: [Int!]
+
+  """All values that are not contained in given list."""
+  dividerWidth_not_in: [Int!]
+
+  """All values less than the given value."""
+  dividerWidth_lt: Int
+
+  """All values less than or equal the given value."""
+  dividerWidth_lte: Int
+
+  """All values greater than the given value."""
+  dividerWidth_gt: Int
+
+  """All values greater than or equal the given value."""
+  dividerWidth_gte: Int
+  _MagicalBackRelation_ElementToTemplate_every: TemplateWhereInput
+  _MagicalBackRelation_ElementToTemplate_some: TemplateWhereInput
+  _MagicalBackRelation_ElementToTemplate_none: TemplateWhereInput
+}
+
+input ElementWhereUniqueInput {
+  id: ID
+}
+
+"""
+The `Long` scalar type represents non-fractional signed whole numeric values.
+Long can represent values between -(2^63) and 2^63 - 1.
+"""
+scalar Long
+
+type Mutation {
+  createTemplate(data: TemplateCreateInput!): Template!
+  createElement(data: ElementCreateInput!): Element!
+  updateTemplate(data: TemplateUpdateInput!, where: TemplateWhereUniqueInput!): Template
+  updateElement(data: ElementUpdateInput!, where: ElementWhereUniqueInput!): Element
+  deleteTemplate(where: TemplateWhereUniqueInput!): Template
+  deleteElement(where: ElementWhereUniqueInput!): Element
+  upsertTemplate(where: TemplateWhereUniqueInput!, create: TemplateCreateInput!, update: TemplateUpdateInput!): Template!
+  upsertElement(where: ElementWhereUniqueInput!, create: ElementCreateInput!, update: ElementUpdateInput!): Element!
+  updateManyTemplates(data: TemplateUpdateInput!, where: TemplateWhereInput): BatchPayload!
+  updateManyElements(data: ElementUpdateInput!, where: ElementWhereInput): BatchPayload!
+  deleteManyTemplates(where: TemplateWhereInput): BatchPayload!
+  deleteManyElements(where: ElementWhereInput): BatchPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+"""An object with an ID"""
+interface Node {
+  """The id of the object."""
+  id: ID!
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+}
+
+type Query {
+  templates(where: TemplateWhereInput, orderBy: TemplateOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Template]!
+  elements(where: ElementWhereInput, orderBy: ElementOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Element]!
+  template(where: TemplateWhereUniqueInput!): Template
+  element(where: ElementWhereUniqueInput!): Element
+  templatesConnection(where: TemplateWhereInput, orderBy: TemplateOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TemplateConnection!
+  elementsConnection(where: ElementWhereInput, orderBy: ElementOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ElementConnection!
+
+  """Fetches an object given its ID"""
+  node(
+    """The ID of an object"""
+    id: ID!
+  ): Node
+}
+
+type Subscription {
+  template(where: TemplateSubscriptionWhereInput): TemplateSubscriptionPayload
+  element(where: ElementSubscriptionWhereInput): ElementSubscriptionPayload
+}
+
+type Template implements Node {
+  id: ID!
+  name: String
+  height: String
+  width: String
+  elements(where: ElementWhereInput, orderBy: ElementOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Element!]
+}
+
+"""A connection to a list of items."""
+type TemplateConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [TemplateEdge]!
+  aggregate: AggregateTemplate!
+}
+
+input TemplateCreateInput {
+  name: String
+  height: String
+  width: String
+  elements: ElementCreateManyInput
+}
+
+"""An edge in a connection."""
+type TemplateEdge {
+  """The item at the end of the edge."""
+  node: Template!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum TemplateOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  height_ASC
+  height_DESC
+  width_ASC
+  width_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type TemplatePreviousValues {
+  id: ID!
+  name: String
+  height: String
+  width: String
+}
+
+type TemplateSubscriptionPayload {
+  mutation: MutationType!
+  node: Template
+  updatedFields: [String!]
+  previousValues: TemplatePreviousValues
+}
+
+input TemplateSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [TemplateSubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [TemplateSubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [TemplateSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: TemplateWhereInput
+}
+
+input TemplateUpdateInput {
+  name: String
+  height: String
+  width: String
+  elements: ElementUpdateManyInput
+}
+
+input TemplateWhereInput {
+  """Logical AND on all given filters."""
+  AND: [TemplateWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [TemplateWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [TemplateWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
+  height: String
+
+  """All values that are not equal to given value."""
+  height_not: String
+
+  """All values that are contained in given list."""
+  height_in: [String!]
+
+  """All values that are not contained in given list."""
+  height_not_in: [String!]
+
+  """All values less than the given value."""
+  height_lt: String
+
+  """All values less than or equal the given value."""
+  height_lte: String
+
+  """All values greater than the given value."""
+  height_gt: String
+
+  """All values greater than or equal the given value."""
+  height_gte: String
+
+  """All values containing the given string."""
+  height_contains: String
+
+  """All values not containing the given string."""
+  height_not_contains: String
+
+  """All values starting with the given string."""
+  height_starts_with: String
+
+  """All values not starting with the given string."""
+  height_not_starts_with: String
+
+  """All values ending with the given string."""
+  height_ends_with: String
+
+  """All values not ending with the given string."""
+  height_not_ends_with: String
+  width: String
+
+  """All values that are not equal to given value."""
+  width_not: String
+
+  """All values that are contained in given list."""
+  width_in: [String!]
+
+  """All values that are not contained in given list."""
+  width_not_in: [String!]
+
+  """All values less than the given value."""
+  width_lt: String
+
+  """All values less than or equal the given value."""
+  width_lte: String
+
+  """All values greater than the given value."""
+  width_gt: String
+
+  """All values greater than or equal the given value."""
+  width_gte: String
+
+  """All values containing the given string."""
+  width_contains: String
+
+  """All values not containing the given string."""
+  width_not_contains: String
+
+  """All values starting with the given string."""
+  width_starts_with: String
+
+  """All values not starting with the given string."""
+  width_not_starts_with: String
+
+  """All values ending with the given string."""
+  width_ends_with: String
+
+  """All values not ending with the given string."""
+  width_not_ends_with: String
+  elements_every: ElementWhereInput
+  elements_some: ElementWhereInput
+  elements_none: ElementWhereInput
+}
+
+input TemplateWhereUniqueInput {
+  id: ID
+}

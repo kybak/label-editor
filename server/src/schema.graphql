@@ -1,0 +1,18 @@
+# import Post from "./generated/prisma.graphql"
+# import ElementCreateInput from "./generated/prisma.graphql"
+# import ElementUpdateWithWhereUniqueNestedInput from "./generated/prisma.graphql"
+# import Template from "./generated/prisma.graphql"
+
+type Query {
+  templates(id: ID, name: String): [Template!]!
+  template(id: ID): Template!
+}
+
+type Mutation {
+  createTemplate(name: String!, height: String!, width: String!, elements: [ElementCreateInput]): Template
+  deleteTemplate(tplId: ID!): Template
+  updateTemplate(name: String, height: String, width:String, tplId: ID!): Template
+  createElement(tplId: ID!, element: [ElementCreateInput]): Template
+  updateElement(tplId: ID!, element: [ElementUpdateWithWhereUniqueNestedInput!]): Template
+  deleteElement(tplId: ID!, element: [ElementWhereUniqueInput!]): Template
+}
