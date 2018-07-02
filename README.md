@@ -4,6 +4,13 @@
 
 <div align="center">This editor allows printing of inventory data taken from a URL query string.</div>
 
+## Requirements
+You'll need to first install prisma and pm2
+```
+npm install -g prisma
+npm install -g pm2
+```
+
 ## Getting started
 
 ```sh
