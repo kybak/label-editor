@@ -8,10 +8,10 @@
 
 ```sh
 # 1. Clone repo
-git clone https://github.com/kybak/label-editor.git && cd label-editor
+$ git clone https://github.com/kybak/label-editor.git && cd label-editor
 
 # 2. Install dependencies and start process
-npm install && pm2 start --name "client" npm -- start
+$ npm install && pm2 start --name "client" npm -- start
 
 # 3. Navigate into the `server` directory, initialize and start server
 $ cd server && npm install && prisma deploy
