@@ -121,20 +121,6 @@ class Container extends React.Component {
                 FileSaver.saveAs(blob, `${labelData.product + "-" + labelData.soldBy.trim()}.png`);
                 this.setState({print: false});
             });
-
-
-        /*domtoimage.toPng(node)
-            .then((dataUrl) => {
-        console.log("dataurl:", dataUrl);
-                // ReactDOM.render(<img src={dataUrl}></img>, ReactDOM.findDOMNode(this.container.current));
-                let link = document.createElement('a');
-                link.download = `${labelData.product + "-" + labelData.soldBy.trim()}.png`;
-                link.href = dataUrl;
-                link.click();
-            })
-            .catch(function (error) {
-                console.error('oops, something went wrong!', error);
-            });*/
     }
 
     async changeAttribute(attr, val, updateElement) {
