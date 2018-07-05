@@ -97,9 +97,11 @@ class TemplatesCreate extends Component {
 }
 
 const CREATE_TEMPLATE_MUTATION = gql`
-    mutation CreateTemplateMutation($name: String!, $elements: [ElementCreateInput]) {
+    mutation CreateTemplateMutation($name: String!, $width: String!, $height: String!, $elements: [ElementCreateInput]) {
         createTemplate(
             name: $name
+            width: $width
+            height: $height
             elements: $elements
         ) {
             ...AllTemplate
